@@ -13,6 +13,8 @@ git checkout -b api
 mkdir azure2
 ```
 
+Note: This guide was run with commit `61028c55fca2385b856ce291619adc1c0aa86003`, so you may want to check out this exact commit if the current commit isn't behaving as expected.
+
 With the last command we make a directory `azure2` because the scripts to run the Docker container connect mount this directory into the container.  Once we clone the repository that contains the data and the AZURE2 configuration files we will copy the relevant files to this directory.  This is also the directory that will contain the output from AZURE2.
 
 ```
