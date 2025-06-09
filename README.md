@@ -23,10 +23,12 @@ git clone
 
 The expected directory structure is now
 
+<pre>
 -- AZURE2
    |-- azure2
    |-- etc.
 -- 14N_n_totalCrossSection_0.1_to_12_MeV
+</pre>
 
 ## Build the container
 
