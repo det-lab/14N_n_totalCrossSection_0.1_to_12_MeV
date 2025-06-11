@@ -1,0 +1,9 @@
+Oct 03, 2018
+Qian_ND_an_stat.dat -- moved energy -8 keV
+Sanders_14C_pn.dat -- moved energy -4 keV
+
+Oct 04, 2018
+Morgan_14N_np.dat -- moved energy -8 keV
+14C_pp_Harris.dat -- moved energy -8 keV
+
+
