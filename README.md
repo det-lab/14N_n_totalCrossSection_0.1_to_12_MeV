@@ -46,7 +46,9 @@ source scripts/build.sh
 Now we'll copy over the AZURE2 config files and the data files to the `AZURE2/azure2` directory so that when we run the script to run the container, the necessary files will inside the container.
 
 ```
-cp stuff AZURE2/azure2
+cd azure2
+cp ../../14N_n_totalCrossSection_0.1_to_12_MeV/config_files/* .
+cp ../../14N_n_totalCrossSection_0.1_to_12_MeV/data/* data/
 ```
 
 ## Run the container
@@ -63,11 +65,11 @@ Load the `11B+a_Elbe.azr` file and then `Save and Run`.  This will produce three
 
 In the `11B+a_Elbe.azr` file, the convolution to account for spread in the beam energy is turned on.    
 
-We need to rename these files so it's clear they're from the Elbe data and fit and copy them over to the working directory for the plotting.  I use this command:
+We need to rename these files so it's clear they're from the Elbe data and fit and copy them over to the working directory for the plotting.  I open a new terminal (as the current terminal is still running the AZURE2 GUI) and use this command:
 
 ```
-$ cd AZURE2/azure2/output
-$ find . -name 'AZUREOut_aa=*_R=*.out' -print0 | xargs -0 -I{} sh -c 'cp "{}" "../../../14N_n_totalCrossSection_0.1_to_12_MeV/output/Elbe_$(basename "{}")"'
+cd AZURE2/azure2/output
+find . -name 'AZUREOut_aa=*_R=*.out' -print0 | xargs -0 -I{} sh -c 'cp "{}" "../../../14N_n_totalCrossSection_0.1_to_12_MeV/output/Elbe_$(basename "{}")"'
 ```
 
 ## Calculate the Harvey results and copy the output over to your plotting directory
@@ -75,11 +77,10 @@ Load the `11B+a_Harvey.azr` file and then `Save and Run`.  This will produce thr
 
 In the `11B+a_Harvey.azr` configuration file, there is no convolution to account for the energy spread of the beam.  The authors of the Harvey paper argue that the beam spread from their experiment has a negligible impact at this energy.
 
-We need to rename these files so it's clear they're from the Harvey data and fit and copy them over to the working directory for the plotting.  I use this command:
+We need to rename these files so it's clear they're from the Harvey data and fit and copy them over to the working directory for the plotting.  I use the terminal previously used to copy the output files and use this command:
 
 ```
-$ cd AZURE2/azure2/output
-$ find . -name 'AZUREOut_aa=*_R=*.out' -print0 | xargs -0 -I{} sh -c 'cp "{}" "../../../14N_n_totalCrossSection_0.1_to_12_MeV/output/Harvey_$(basename "{}")"'
+find . -name 'AZUREOut_aa=*_R=*.out' -print0 | xargs -0 -I{} sh -c 'cp "{}" "../../../14N_n_totalCrossSection_0.1_to_12_MeV/output/Harvey_$(basename "{}")"'
 ```
 
 ## Plot the Harvey result and the deBoer/Elbe data on the same graph

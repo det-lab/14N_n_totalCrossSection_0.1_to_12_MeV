@@ -327,16 +327,16 @@ none                                                                            
 0              1              3              0.75           10             0              180            0              1              1              0              data/Wang_10B_ap.dat
 0              3              2              1.03           1.5            0              180            0              1e-05          0              10             data/Sanders_14C_pn.dat
 0              3              3              0              10             39.2           39.2           4              1              0              0              data/14C_pp_Harris_CM.dat
-1              3              3              0              1.85           54.7           180            4              1              1              0              data/14C_pp_Harris_CM.dat
+0              3              3              0              1.85           54.7           180            4              1              1              0              data/14C_pp_Harris_CM.dat
 0              3              3              0              1.85           90             90             4              1              0              0              data/14C_pp_Harris_CM.dat
 0              3              3              0              1.85           125.3          125.3          4              1              0              0              data/14C_pp_Harris_CM.dat
 0              3              3              0              1.85           161.4          161.4          4              1              0              0              data/14C_pp_Harris_CM.dat
 0              3              3              0              1.85           90             90             4              1              0              0              data/14C_pp_Henderson_CM.dat
-1              2              3              0              0.8            0              180            0              1              1              10             data/Morgan_14N_np.dat
+0              2              3              0              0.8            0              180            0              1              1              10             data/Morgan_14N_np.dat
 0              2              1              0              2.5            0              180            0              1              1              10             data/Gabbard_14N_na.dat
 0              1              1              0              1.96           0              180            4              1              0              0              data/Liu_11B_aa.dat
 0              1              3              0              10             0              180            0              1              0              0              data/Dayras_11B_ap.dat
-1              2              3              0              10             0              180            0              1              1              0              data/Koehler_14N_pn.dat
+0              2              3              0              10             0              180            0              1              1              0              data/Koehler_14N_pn.dat
 0              2              1              0              2.32           0              180            0              1              0              0              data/Morgan_14N_an_2.dat
 0              2              1              0              10             0              180            0              1              0              0              data/Gabbard_14N_na.dat
 0              3              4              0              10             0              180            0              1              0              0              data/Goerres_14C_pg0.dat
@@ -398,10 +398,10 @@ none                                                                            
 0              3              3              0              1.85           125            125            4              1              0              0              data/14C_pp_Henderson_CM.dat
 0              3              3              0              1.85           141            141            4              1              0              0              data/14C_pp_Henderson_CM.dat
 0              3              3              1.068          1.85           165            165            4              1              0              0              data/14C_pp_Henderson_CM.dat
-1              1              2              0              10             0              180            0              1              1              10             data/CASPAR_Tyler_XS_thick.dat
+0              1              2              0              10             0              180            0              1              1              10             data/CASPAR_Tyler_XS_thick.dat
 0              1              2              0              10             0              180            0              1              0              0              data/CASPAR_Tyler_XS_thin.dat
-1              1              3              0              0.79           90             90             1              1              1              0              data/ND_11B_ap_June2020_t1.dat
-1              1              3              0              0.79           0              180            1              1              1              0              data/ND_11B_ap_June2020_t2.dat
+0              1              3              0              0.79           90             90             1              1              1              0              data/ND_11B_ap_June2020_t1.dat
+0              1              3              0              0.79           0              180            1              1              1              0              data/ND_11B_ap_June2020_t2.dat
 </segmentsData>
 <segmentsTest>
 1              2              1              0.174          1              0.0001         0              0              0              0
