@@ -1,0 +1,3 @@
+# don't commit .out files
+# the point is to let people generate these files from AZURE2
+*.out
