@@ -1,9 +1,10 @@
 # Instructions for recreating the 431 keV plot in the 14N+n total cross section paper
 
-This repository contains the data used for the 14N+n total cross section paper and this REAME provides instructions for recreating the 431 keV (lab frame) plot contrasting the Harvey and deBoer/ELBE data.
+This repository contains the data used for the 14N+n total cross section paper and this README provides instructions for recreating the 431 keV (lab frame) plot contrasting the Harvey and deBoer/ELBE data.  While this is not a replication of the full analysis, it does have the final parameters for the AZURE2 `.azr` files and all of the datasets used, and illustrates what the units and frames of all the input and output files are.
 
 ## Get the code and data
 
+### Get AZURE2
 This analysis was run with the AZURE2 codebase.  First we will get the AZURE2 code.  If you have a working instance of AZURE2 built from the `api` branch you can skip this step.  The code needs to be from the `api` branch to take advantage of the variable-width convolution that has been implemented in this branch.
 
 ```
@@ -17,12 +18,15 @@ Note: This guide was run with commit `61028c55fca2385b856ce291619adc1c0aa86003`,
 
 With the last command we make a directory `azure2` because the scripts to run the Docker container connect mount this directory into the container.  Once we clone the repository that contains the data and the AZURE2 configuration files we will copy the relevant files to this directory.  This is also the directory that will contain the output from AZURE2.
 
+### Get the data and configuration files
+Now we will get the repository that contains the data and the configuration files for the 14N+n total cross section analysis.
+
 ```
 cd ..
-git clone
-
+git clone git@github.com:det-lab/14N_n_totalCrossSection_0.1_to_12_MeV.git
 ```
 
+### Check your directory structure
 The expected directory structure is now
 
 <pre>
@@ -43,10 +47,13 @@ source scripts/build.sh
 
 ## Copy over the needed files
 
-Now we'll copy over the AZURE2 config files and the data files to the `AZURE2/azure2` directory so that when we run the script to run the container, the necessary files will inside the container.
+Now we'll copy over the AZURE2 config files and the data files to the `AZURE2/azure2` directory so that when we run the script to run the container, the necessary files will be inside the container.  AZURE2 also expects an `output` and `checks` directory by default, so we make those as well.
 
 ```
 cd azure2
+mkdir data
+mkdir output
+mkdir checks
 cp ../../14N_n_totalCrossSection_0.1_to_12_MeV/config_files/* .
 cp ../../14N_n_totalCrossSection_0.1_to_12_MeV/data/* data/
 ```
@@ -56,7 +63,7 @@ cp ../../14N_n_totalCrossSection_0.1_to_12_MeV/data/* data/
 To run the container we will call the `run_gui.sh` script in the `AZURE2/scripts` directory.  This script will start the container and mount the `azure2` directory within the container.  It will also launch the AZURE2 gui.
 
 ```
-cd AZURE2
+cd .. # move to the top-level directory of the AZURE2 repository
 source scripts/run_gui.sh
 ```
 
@@ -85,4 +92,5 @@ find . -name 'AZUREOut_aa=*_R=*.out' -print0 | xargs -0 -I{} sh -c 'cp "{}" "../
 
 ## Plot the Harvey result and the deBoer/Elbe data on the same graph
 
+Now you're ready to run the notebook `14N_n_totalCrossSection_0.1_to_12_MeV/fig_13.ipynb`.  
 
