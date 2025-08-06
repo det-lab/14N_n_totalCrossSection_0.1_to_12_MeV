@@ -2,6 +2,10 @@
 
 This repository contains the data used for the 14N+n total cross section paper and this README provides instructions for recreating the 431 keV (lab frame) plot contrasting the Harvey and deBoer/ELBE data.  While this is not a replication of the full analysis, it does have the final parameters for the AZURE2 `.azr` files and all of the datasets used, and illustrates what the units and frames of all the input and output files are.
 
+## Getting Help
+
+To get help with these instructions, or if you have any suggestions, please open a GitHub issue.  If you prefer, you can also contact the author (Amy Roberts) at `amy.roberts@ucdenver.edu`.
+
 ## Get the code and data
 
 ### Get AZURE2
