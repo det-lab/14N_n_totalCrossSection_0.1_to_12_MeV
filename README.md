@@ -61,13 +61,13 @@ cd AZURE2
 source scripts/build.sh
 ```
 
-> [!NOTE]
-> If the file `scripts/run_gui.sh` does not exist in your `AZURE2` repository, you are working on the wrong branch.  
-> For these instructions to work, you need to switch to the `api` branch.  To do so, try
+> [!IMPORTANT]
+> If the file `scripts/run_gui.sh` does not exist in your `AZURE2` repository, you are working on the wrong branch.  For these instructions to work, you need to switch to the `api` branch.  To do so, try
 > ```
 > git checkout -b api
 > git pull
 > ```
+> You can check that you are on the correct branch with the command `git branch`.
 
 ## Run the container
 
