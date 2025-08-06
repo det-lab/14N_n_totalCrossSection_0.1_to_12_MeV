@@ -5,18 +5,14 @@ This repository contains the data used for the 14N+n total cross section paper a
 ## Get the code and data
 
 ### Get AZURE2
-This analysis was run with the AZURE2 codebase.  First we will get the AZURE2 code.  If you have a working instance of AZURE2 built from the `api` branch you can skip this step.  The code needs to be from the `api` branch to take advantage of the variable-width convolution that has been implemented in this branch.
+This analysis was run with the AZURE2 codebase.  First we will get the AZURE2 code.  The code needs to be from the `api` branch to take advantage of the variable-width convolution that has been implemented in this branch.  You will need a github account to clone the code.
 
 ```
-git clone git@github.com:rdeboer1/AZURE2.git
-cd AZURE2
-git checkout -b api
-mkdir azure2
+git clone --branch api git@github.com:rdeboer1/AZURE2.git
 ```
 
 Note: This guide was run with commit `61028c55fca2385b856ce291619adc1c0aa86003`, so you may want to check out this exact commit if the current commit isn't behaving as expected.
 
-With the last command we make a directory `azure2` because the scripts to run the Docker container mount this directory into the container.  Once we clone the repository that contains the data and the AZURE2 configuration files we will copy the relevant files to this `azure2` directory.  This is also the directory that will contain the output from AZURE2.
 
 ### Get the data and configuration files
 Now we will get the repository that contains the data and the configuration files for the 14N+n total cross section analysis.
@@ -26,7 +22,14 @@ cd ..
 git clone git@github.com:det-lab/14N_n_totalCrossSection_0.1_to_12_MeV.git
 ```
 
-### Check your directory structure
+### Make a working directory and check your directory structure
+Now we'll make a working directory inside `AZURE2`.  This directory will eventually contain the `.azr` files, data files, and output files for `AZURE2`.
+
+```
+cd AZURE2
+mkdir azure2
+```
+
 The expected directory structure is now
 
 <pre>
@@ -35,15 +38,6 @@ The expected directory structure is now
    |-- etc.
 -- 14N_n_totalCrossSection_0.1_to_12_MeV
 </pre>
-
-## Build the container
-
-Now we will build the AZURE2 container with the command
-
-```
-cd AZURE2
-source scripts/build.sh
-```
 
 ## Copy over the needed files
 
@@ -57,6 +51,23 @@ mkdir checks
 cp ../../14N_n_totalCrossSection_0.1_to_12_MeV/config_files/* .
 cp ../../14N_n_totalCrossSection_0.1_to_12_MeV/data/* data/
 ```
+
+## Build the container
+
+Now we will build the AZURE2 container with the command
+
+```
+cd AZURE2
+source scripts/build.sh
+```
+
+> [!NOTE]
+> If the file `scripts/run_gui.sh` does not exist in your `AZURE2` repository, you are working on the wrong branch.  
+> For these instructions to work, you need to switch to the `api` branch.  To do so, try
+> ```
+> git checkout -b api
+> git pull
+> ```
 
 ## Run the container
 
