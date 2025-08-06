@@ -34,14 +34,37 @@ The expected directory structure is now
 
 <pre>
 -- AZURE2
+   |-- api
    |-- azure2
-   |-- etc.
+   |-- cmake
+   |-- ...
+   |-- scripts
+   |-- src
 -- 14N_n_totalCrossSection_0.1_to_12_MeV
+   |-- config_files
+   |-- data
+   |-- ...
 </pre>
+
+Check that the expected files exist with the command
+
+```
+stat scripts/build.sh
+```
+
+If this command outputs information about the file `scripts/build.sh`, you're good to go!
+
+> [!IMPORTANT]
+> If the file `scripts/run_gui.sh` does not exist in your `AZURE2` repository, you are working on the wrong branch.  For these instructions to work, you need to switch to the `api` branch.  To do so, try
+> ```
+> git checkout -b api
+> git pull
+> ```
+> You can check that you are on the correct branch with the command `git branch`.
 
 ## Copy over the needed files
 
-Now we'll copy over the AZURE2 config files and the data files to the `AZURE2/azure2` directory so that when we run the script to run the container, the necessary files will be inside the container.  AZURE2 also expects an `output` and `checks` directory by default, so we make those as well.
+Now we'll copy over the AZURE2 config files and the data files to the `AZURE2/azure2` directory so that when we run the container, the necessary files will be inside the container.  AZURE2 also expects an `output` and `checks` directory by default, so we make those as well.
 
 ```
 cd azure2
@@ -60,14 +83,6 @@ Now we will build the AZURE2 container with the command
 cd AZURE2
 source scripts/build.sh
 ```
-
-> [!IMPORTANT]
-> If the file `scripts/run_gui.sh` does not exist in your `AZURE2` repository, you are working on the wrong branch.  For these instructions to work, you need to switch to the `api` branch.  To do so, try
-> ```
-> git checkout -b api
-> git pull
-> ```
-> You can check that you are on the correct branch with the command `git branch`.
 
 ## Run the container
 
